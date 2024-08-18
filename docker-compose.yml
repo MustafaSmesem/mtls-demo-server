@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - java-server
+
+  java-server:
+    image: mtls-server:latest
+    ports:
+      - "8099:8080"

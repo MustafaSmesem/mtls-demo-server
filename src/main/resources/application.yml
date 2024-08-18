@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mtls-server
+server:
+  port: 9090
+  ssl:
+    enabled: true
+    key-store: classpath:myserver_keystore.jks
+    key-store-type: PKCS12
+    key-store-password: 12345678
+    key-password: 12345678
+    key-alias: api-server.joumer.com
+    trust-store: classpath:myserver_truststore.jks
+    trust-store-password: 12345678
+    client-auth: need
+
+
+custom:
+  ssl:
+    client:
+      keystore-path: classpath:myclient_keystore.jks
+      keystore-password: 12345678
+      truststore-path: classpath:myclient_truststore.jks
+      truststore-password: 12345678
